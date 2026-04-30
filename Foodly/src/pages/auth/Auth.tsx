@@ -32,7 +32,7 @@ export default function Auth() {
     try {
       if (mode === "signup") {
         const v = signUpSchema.parse(form);
-        const { error } = await supabase.auth.signUp({
+        const { data, error } = await supabase.auth.signUp({
           email: v.email,
           password: v.password,
           options: {
@@ -41,14 +41,24 @@ export default function Auth() {
           },
         });
         if (error) throw error;
-        toast.success("Welcome to foodly! 🎉");
-        navigate("/");
+        if (data.session) {
+          toast.success("Welcome to foodly! 🎉");
+          navigate("/");
+        } else {
+          toast.success("Check your inbox to confirm your account.");
+          navigate("/auth");
+        }
       } else {
         const v = signInSchema.parse(form);
-        const { error } = await supabase.auth.signInWithPassword({ email: v.email, password: v.password });
+        const { data, error } = await supabase.auth.signInWithPassword({ email: v.email, password: v.password });
         if (error) throw error;
-        toast.success("Welcome back!");
-        navigate("/");
+        if (data.session) {
+          toast.success("Welcome back!");
+          navigate("/");
+        } else {
+          toast.success("Signed in successfully.");
+          navigate("/");
+        }
       }
     } catch (err: any) {
       toast.error(err?.errors?.[0]?.message || err?.message || "Something went wrong");
@@ -58,8 +68,15 @@ export default function Auth() {
   };
 
   const handleGoogle = async () => {
-    const r = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
-    if (r.error) toast.error("Google sign-in failed");
+    setLoading(true);
+    try {
+      const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin });
+      if (result.error) throw result.error;
+    } catch (err: any) {
+      toast.error(err?.message || "Google sign-in failed");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

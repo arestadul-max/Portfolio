@@ -21,6 +21,10 @@ export default function Checkout() {
   const navigate = useNavigate();
   const [address, setAddress] = useState("");
   const [fulfillment, setFulfillment] = useState<"delivery" | "pickup">("delivery");
+  const [paymentMethod, setPaymentMethod] = useState<"card" | "upi" | "cash">("card");
+  const [cardNumber, setCardNumber] = useState("");
+  const [cardExpiry, setCardExpiry] = useState("");
+  const [cardCvc, setCardCvc] = useState("");
   const [loading, setLoading] = useState(false);
 
   const fee = fulfillment === "delivery" ? (total >= 20 ? 0 : 2.99) : 0;
@@ -31,10 +35,17 @@ export default function Checkout() {
     if (items.length === 0) return toast.error("Your cart is empty");
     try {
       const v = schema.parse({ address, fulfillment });
+      if (paymentMethod === "card" && (!cardNumber || !cardExpiry || !cardCvc)) {
+        return toast.error("Enter complete card details to continue");
+      }
       setLoading(true);
+      if (paymentMethod === "card") {
+        await new Promise((resolve) => setTimeout(resolve, 900));
+        toast.success("Payment authorized successfully");
+      }
       const { data, error } = await supabase.from("orders").insert({
         user_id: user.id,
-        status: "placed",
+        status: paymentMethod === "card" ? "paid" : "placed",
         fulfillment: v.fulfillment,
         items: items.map((i) => ({ id: i.id, name: i.name, qty: i.qty, price: i.price })),
         subtotal: total,
@@ -71,6 +82,39 @@ export default function Checkout() {
             <h2 className="font-display font-bold text-xl mb-4">{fulfillment === "delivery" ? "Delivery address" : "Pickup location"}</h2>
             <Label>{fulfillment === "delivery" ? "Where should we deliver?" : "Which store?"}</Label>
             <Input value={address} onChange={(e) => setAddress(e.target.value)} maxLength={200} placeholder={fulfillment === "delivery" ? "123 Main St, Apt 4B" : "Downtown branch"} className="mt-2 h-12 rounded-xl" />
+          </div>
+
+          <div className="mt-6 glass rounded-2xl p-6">
+            <h2 className="font-display font-bold text-xl mb-4">Payment gateway</h2>
+            <p className="text-sm text-muted-foreground mb-4">Choose a payment method to complete your order securely.</p>
+            <div className="grid gap-3">
+              {(["card", "upi", "cash"] as const).map((method) => (
+                <button
+                  key={method}
+                  type="button"
+                  onClick={() => setPaymentMethod(method)}
+                  className={`h-14 rounded-xl border text-left px-4 font-semibold capitalize transition ${paymentMethod === method ? "bg-gradient-brand text-primary-foreground border-transparent shadow-glow-pink" : "border-border hover:bg-muted"}`}
+                >
+                  {method === "card" ? "Credit / Debit card" : method === "upi" ? "UPI" : "Cash on delivery"}
+                </button>
+              ))}
+            </div>
+            {paymentMethod === "card" && (
+              <div className="mt-4 space-y-3">
+                <Input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} placeholder="Card number" maxLength={19} className="h-12 rounded-xl" />
+                <div className="grid grid-cols-2 gap-3">
+                  <Input value={cardExpiry} onChange={(e) => setCardExpiry(e.target.value)} placeholder="MM/YY" maxLength={5} className="h-12 rounded-xl" />
+                  <Input value={cardCvc} onChange={(e) => setCardCvc(e.target.value)} placeholder="CVC" maxLength={4} className="h-12 rounded-xl" />
+                </div>
+                <p className="text-xs text-muted-foreground">This is a secure payment gateway simulation for demo orders.</p>
+              </div>
+            )}
+            {paymentMethod === "upi" && (
+              <div className="mt-4">
+                <Label>UPI ID</Label>
+                <Input placeholder="you@bank" className="mt-2 h-12 rounded-xl" />
+              </div>
+            )}
           </div>
         </div>
 
