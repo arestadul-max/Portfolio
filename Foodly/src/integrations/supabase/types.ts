@@ -42,6 +42,8 @@ export type Database = {
           fulfillment: string
           id: string
           items: Json
+          payment_method: string | null
+          payment_reference: string | null
           status: string
           subtotal: number
           total: number
@@ -54,6 +56,8 @@ export type Database = {
           fulfillment?: string
           id?: string
           items?: Json
+          payment_method?: string | null
+          payment_reference?: string | null
           status?: string
           subtotal?: number
           total?: number
@@ -66,6 +70,8 @@ export type Database = {
           fulfillment?: string
           id?: string
           items?: Json
+          payment_method?: string | null
+          payment_reference?: string | null
           status?: string
           subtotal?: number
           total?: number

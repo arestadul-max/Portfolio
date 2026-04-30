@@ -21,10 +21,9 @@ export default function Checkout() {
   const navigate = useNavigate();
   const [address, setAddress] = useState("");
   const [fulfillment, setFulfillment] = useState<"delivery" | "pickup">("delivery");
-  const [paymentMethod, setPaymentMethod] = useState<"card" | "upi" | "cash">("card");
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardExpiry, setCardExpiry] = useState("");
-  const [cardCvc, setCardCvc] = useState("");
+  const [paymentMethod, setPaymentMethod] = useState<"bkash" | "nagad" | "rocket" | "cash">("bkash");
+  const [walletNumber, setWalletNumber] = useState("");
+  const [transactionId, setTransactionId] = useState("");
   const [loading, setLoading] = useState(false);
 
   const fee = fulfillment === "delivery" ? (total >= 20 ? 0 : 2.99) : 0;
@@ -35,22 +34,26 @@ export default function Checkout() {
     if (items.length === 0) return toast.error("Your cart is empty");
     try {
       const v = schema.parse({ address, fulfillment });
-      if (paymentMethod === "card" && (!cardNumber || !cardExpiry || !cardCvc)) {
-        return toast.error("Enter complete card details to continue");
+      if (paymentMethod !== "cash" && (!walletNumber || !transactionId)) {
+        return toast.error("Enter wallet number and transaction ID to proceed");
       }
+
       setLoading(true);
-      if (paymentMethod === "card") {
-        await new Promise((resolve) => setTimeout(resolve, 900));
-        toast.success("Payment authorized successfully");
+      if (paymentMethod !== "cash") {
+        await new Promise((resolve) => setTimeout(resolve, 1200));
+        toast.success(`${paymentMethod.toUpperCase()} payment confirmed`);
       }
+
       const { data, error } = await supabase.from("orders").insert({
         user_id: user.id,
-        status: paymentMethod === "card" ? "paid" : "placed",
+        status: paymentMethod === "cash" ? "placed" : "paid",
         fulfillment: v.fulfillment,
         items: items.map((i) => ({ id: i.id, name: i.name, qty: i.qty, price: i.price })),
         subtotal: total,
         total: grand,
         address: v.address,
+        payment_method: paymentMethod,
+        payment_reference: paymentMethod === "cash" ? null : transactionId,
       }).select().single();
       if (error) throw error;
       clear();
@@ -86,33 +89,26 @@ export default function Checkout() {
 
           <div className="mt-6 glass rounded-2xl p-6">
             <h2 className="font-display font-bold text-xl mb-4">Payment gateway</h2>
-            <p className="text-sm text-muted-foreground mb-4">Choose a payment method to complete your order securely.</p>
+            <p className="text-sm text-muted-foreground mb-4">Choose a Bangladesh mobile wallet or cash on delivery.</p>
             <div className="grid gap-3">
-              {(["card", "upi", "cash"] as const).map((method) => (
+              {(["bkash", "nagad", "rocket", "cash"] as const).map((method) => (
                 <button
                   key={method}
                   type="button"
                   onClick={() => setPaymentMethod(method)}
                   className={`h-14 rounded-xl border text-left px-4 font-semibold capitalize transition ${paymentMethod === method ? "bg-gradient-brand text-primary-foreground border-transparent shadow-glow-pink" : "border-border hover:bg-muted"}`}
                 >
-                  {method === "card" ? "Credit / Debit card" : method === "upi" ? "UPI" : "Cash on delivery"}
+                  {method === "cash" ? "Cash on delivery" : method.toUpperCase()}
                 </button>
               ))}
             </div>
-            {paymentMethod === "card" && (
+            {paymentMethod !== "cash" && (
               <div className="mt-4 space-y-3">
-                <Input value={cardNumber} onChange={(e) => setCardNumber(e.target.value)} placeholder="Card number" maxLength={19} className="h-12 rounded-xl" />
-                <div className="grid grid-cols-2 gap-3">
-                  <Input value={cardExpiry} onChange={(e) => setCardExpiry(e.target.value)} placeholder="MM/YY" maxLength={5} className="h-12 rounded-xl" />
-                  <Input value={cardCvc} onChange={(e) => setCardCvc(e.target.value)} placeholder="CVC" maxLength={4} className="h-12 rounded-xl" />
-                </div>
-                <p className="text-xs text-muted-foreground">This is a secure payment gateway simulation for demo orders.</p>
-              </div>
-            )}
-            {paymentMethod === "upi" && (
-              <div className="mt-4">
-                <Label>UPI ID</Label>
-                <Input placeholder="you@bank" className="mt-2 h-12 rounded-xl" />
+                <Label>Wallet number</Label>
+                <Input value={walletNumber} onChange={(e) => setWalletNumber(e.target.value)} placeholder="01XXXXXXXXX" maxLength={14} className="h-12 rounded-xl" />
+                <Label>Transaction ID</Label>
+                <Input value={transactionId} onChange={(e) => setTransactionId(e.target.value)} placeholder="TXN123456789" maxLength={50} className="h-12 rounded-xl" />
+                <p className="text-xs text-muted-foreground">Enter the transaction ID from your selected wallet app to confirm the payment.</p>
               </div>
             )}
           </div>
