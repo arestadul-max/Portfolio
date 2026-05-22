@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@color/navy_background">
+
+    <!-- Title and Selection Count -->
+    <TextView
+        android:id="@+id/tv_selected_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Selected: 0 apps"
+        android:textSize="14sp"
+        android:textColor="#B0B0B0"
+        android:layout_marginBottom="8dp"
+        android:gravity="center" />
+
+    <!-- Selection Controls -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="8dp">
+        
+        <Button
+            android:id="@+id/btn_select_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="Select All"
+            android:textSize="12sp" />
+        
+        <Button
+            android:id="@+id/btn_deselect_all"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="Deselect All"
+            android:textSize="12sp" />
+        
+    </LinearLayout>
+
+    <!-- RecyclerView for app list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_select_apps"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:scrollbars="vertical" />
+
+    <Button
+        android:id="@+id/btn_save_selection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save Selection" />
+
+</LinearLayout>

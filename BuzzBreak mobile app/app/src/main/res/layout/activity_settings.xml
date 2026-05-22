@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/main"
+    android:background="@color/navy_background"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:paddingTop="60dp">
+
+        <!-- Settings Title -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ Settings"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:gravity="center"
+            android:layout_marginBottom="32dp"
+            android:background="@drawable/dark_card_bg"
+            android:padding="20dp"
+            android:elevation="4dp"/>
+
+        <!-- Themes Section -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎨 Choose Your Theme"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:layout_marginBottom="16dp"
+            android:layout_marginStart="8dp"/>
+
+        <!-- Theme Selection Grid -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="4"
+            android:layout_marginBottom="32dp">
+
+            <!-- Joey Tripp Theme -->
+            <LinearLayout
+                android:id="@+id/theme_joey_tripp"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/joey_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌟"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Joey Tripp"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/joey_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="visible"/>
+            </LinearLayout>
+
+            <!-- Ocean Breeze Theme -->
+            <LinearLayout
+                android:id="@+id/theme_ocean_breeze"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/ocean_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌊"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Ocean Breeze"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/ocean_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Sunset Glow Theme -->
+            <LinearLayout
+                android:id="@+id/theme_sunset_glow"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/sunset_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌅"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Sunset Glow"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/sunset_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Forest Night Theme -->
+            <LinearLayout
+                android:id="@+id/theme_forest_night"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/forest_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌲"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Forest Night"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/forest_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Cyber Neon Theme -->
+            <LinearLayout
+                android:id="@+id/theme_cyber_neon"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/cyber_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="⚡"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cyber Neon"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/cyber_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Midnight Purple Theme -->
+            <LinearLayout
+                android:id="@+id/theme_midnight_purple"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/midnight_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔮"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Midnight Purple"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/midnight_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+            <!-- Tree Design Theme -->
+            <LinearLayout
+                android:id="@+id/theme_tree_design"
+                android:layout_width="0dp"
+                android:layout_height="120dp"
+                android:layout_columnWeight="1"
+                android:layout_margin="8dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="@drawable/tree_card_bg"
+                android:clickable="true"
+                android:focusable="true"
+                android:elevation="3dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌳"
+                    android:textSize="32sp"
+                    android:layout_marginBottom="8dp"/>
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tree Design"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/text_primary"
+                    android:gravity="center"/>
+                    
+                <TextView
+                    android:id="@+id/tree_selected"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="✓ Active"
+                    android:textSize="10sp"
+                    android:textColor="@color/text_primary"
+                    android:layout_marginTop="4dp"
+                    android:visibility="gone"/>
+            </LinearLayout>
+
+        </GridLayout>
+
+        <!-- Apply Theme Button -->
+        <Button
+            android:id="@+id/btn_apply_theme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎨 Apply Selected Theme"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/text_primary"
+            android:background="@drawable/dark_card_bg"
+            android:padding="16dp"
+            android:layout_marginTop="16dp"
+            android:elevation="3dp"/>
+
+        <!-- App Info Section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/dark_card_bg"
+            android:padding="20dp"
+            android:elevation="2dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="ℹ️ About BuzzBreak"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/text_primary"
+                android:layout_marginBottom="12dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Version: 1.0.0"
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your digital wellness companion with beautiful themes and productivity tools."
+                android:textSize="14sp"
+                android:textColor="@color/text_secondary"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

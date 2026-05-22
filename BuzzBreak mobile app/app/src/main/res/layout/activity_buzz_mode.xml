@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    android:fadeScrollbars="false"
+    android:background="@color/background_light">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:paddingTop="100dp"
+    android:gravity="center_horizontal"
+    android:layout_gravity="center">
+
+    <!-- Main Content Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="8dp"
+        android:maxWidth="400dp"
+        android:gravity="center_horizontal">
+
+    <!-- Title -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Buzz Mode"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/light_aesthetic_box"
+        android:gravity="center"
+        android:textColor="@color/text_primary"
+        android:elevation="3dp"
+        android:layout_gravity="center_horizontal"/>
+
+    <!-- Buzz Mode Control Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="12dp"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/light_aesthetic_box"
+        android:padding="8dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/tv_buzz_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="11sp"
+            android:textColor="@color/text_secondary"
+            android:gravity="center"
+            android:lineSpacingExtra="2dp"
+            android:paddingBottom="8dp"/>
+
+        <ToggleButton
+            android:id="@+id/toggle_buzz"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:textOn="UNLOCK"
+            android:textOff="LOCK"
+            android:textAllCaps="true"
+            android:textColor="@android:color/white"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:background="@drawable/buzz_toggle_bg"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:elevation="2dp"/>
+
+    </LinearLayout>
+
+    <!-- App Selection Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:background="@drawable/light_aesthetic_box"
+        android:padding="8dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:id="@+id/tv_selected_apps"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Allowed apps: 0"
+            android:textSize="11sp"
+            android:textColor="@color/accent_green"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:layout_marginBottom="6dp"/>
+
+        <Button
+            android:id="@+id/btn_select_apps"
+            android:layout_width="200dp"
+            android:layout_height="36dp"
+            android:text="Select Allowed Apps"
+            android:textSize="10sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:background="@drawable/buzz_toggle_bg"/>
+
+    </LinearLayout>
+
+    <!-- Allowed Apps List Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginVertical="8dp"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/light_aesthetic_box"
+        android:padding="8dp"
+        android:elevation="2dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tap to Open Apps"
+            android:textSize="10sp"
+            android:textColor="@color/text_secondary"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:padding="6dp"
+            android:layout_marginBottom="6dp"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_allowed_apps"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:padding="4dp"
+            android:scrollbars="vertical"
+            android:fadeScrollbars="false"/>
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>
+
+

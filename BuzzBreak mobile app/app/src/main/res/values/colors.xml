@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Joey Tripp Theme Colors (Dark Navy + Blue-Purple Gradient) -->
+    <color name="dark_blue_bg">#1A1F36</color>
+    <color name="card_dark_blue">#252B42</color>
+    <color name="navy_background">#1A1F36</color>
+    <color name="gradient_start_blue">#4F8FF7</color>
+    <color name="gradient_end_purple">#E94FFF</color>
+    <color name="accent_blue">#5B9EF7</color>
+    <color name="accent_purple">#C74FFF</color>
+    <color name="light_blue">#6BA4F7</color>
+    <color name="light_purple">#D865FF</color>
+    <color name="circle_green">#4AFF88</color>
+    
+    <!-- Darker Theme Colors for Pomodoro-Break -->
+    <color name="dark_navy_background">#0F1419</color>
+    <color name="darker_card_bg">#1A1F2E</color>
+    <color name="darker_gradient_start">#3B7AE1</color>
+    <color name="darker_gradient_end">#D63BFF</color>
+    
+    <!-- Category Colors for Charts and UI Consistency (Joey Tripp Theme Harmonized) -->
+    <!-- Social Media - Pink/Purple -->
+    <color name="social_start">#E94FFF</color>
+    <color name="social_end">#FF6EC7</color>
+    
+    <!-- Games - Green/Cyan -->
+    <color name="games_start">#4AFF88</color>
+    <color name="games_end">#00FFCC</color>
+    
+    <!-- Productivity - Blue/Light Blue -->
+    <color name="productivity_start">#4F8FF7</color>
+    <color name="productivity_end">#7BA8FF</color>
+    
+    <!-- Others - Purple/Magenta -->
+    <color name="others_start">#C74FFF</color>
+    <color name="others_end">#FF8CFF</color>
+    
+    <!-- Background Colors -->
+    <color name="background_dark_blue">#1A1F36</color>
+    <color name="background_card">#252B42</color>
+    <color name="card_background">#252B42</color>
+    <color name="background_light">#1A1F36</color>
+    
+    <!-- Text Colors -->
+    <color name="text_primary">#FFFFFF</color>
+    <color name="text_secondary">#8892B0</color>
+    <color name="text_hint">#64748B</color>
+    <color name="text_white">#FFFFFF</color>
+    <color name="text_gray">#8892B0</color>
+    
+    <!-- Shadow and Border -->
+    <color name="shadow_color">#33000000</color>
+    <color name="border_color">#2D3748</color>
+    
+    <!-- Joey Tripp Theme (Current Default) -->
+    <color name="joey_background">#1A1F36</color>
+    <color name="joey_card_bg">#252B42</color>
+    <color name="joey_gradient_start">#4F8FF7</color>
+    <color name="joey_gradient_end">#E94FFF</color>
+    
+    <!-- Ocean Breeze Theme -->
+    <color name="ocean_background">#0A1929</color>
+    <color name="ocean_card_bg">#1E3A5F</color>
+    <color name="ocean_gradient_start">#00B4DB</color>
+    <color name="ocean_gradient_end">#0083B0</color>
+    
+    <!-- Sunset Glow Theme -->
+    <color name="sunset_background">#1A0E2E</color>
+    <color name="sunset_card_bg">#2D1B3D</color>
+    <color name="sunset_gradient_start">#FF6B6B</color>
+    <color name="sunset_gradient_end">#FFE66D</color>
+    
+    <!-- Forest Night Theme -->
+    <color name="forest_background">#0D1B1E</color>
+    <color name="forest_card_bg">#1B3B36</color>
+    <color name="forest_gradient_start">#00C851</color>
+    <color name="forest_gradient_end">#007E33</color>
+    
+    <!-- Cyber Neon Theme -->
+    <color name="cyber_background">#0D0D0D</color>
+    <color name="cyber_card_bg">#1A1A1A</color>
+    <color name="cyber_gradient_start">#00FF41</color>
+    <color name="cyber_gradient_end">#00D4AA</color>
+    
+    <!-- Midnight Purple Theme -->
+    <color name="midnight_background">#1A0033</color>
+    <color name="midnight_card_bg">#2D1B4E</color>
+    <color name="midnight_gradient_start">#8A2BE2</color>
+    <color name="midnight_gradient_end">#4B0082</color>
+    
+    <!-- Tree Design Theme -->
+    <color name="tree_background">#1A140D</color>
+    <color name="tree_card_bg">#2D241B</color>
+    <color name="tree_gradient_start">#8B4513</color>
+    <color name="tree_gradient_end">#228B22</color>
+    
+    <color name="shadow_light">#1A000000</color>
+    <color name="border_light">#2D3748</color>
+    
+    <!-- Legacy Green Colors (for compatibility) -->
+    <color name="primary_green">#4F8FF7</color>
+    <color name="light_green">#5B9EF7</color>
+    <color name="mint_green">#6BA4F7</color>
+    <color name="soft_green">#C74FFF</color>
+    <color name="accent_green">#E94FFF</color>
+    <color name="dark_green">#D865FF</color>
+    
+    <!-- Modern Navigation Colors (Updated for Joey Tripp Theme) -->
+    <color name="nav_primary">#4F8FF7</color>
+    <color name="nav_primary_dark">#3B6FD1</color>
+    <color name="nav_accent">#E94FFF</color>
+    <color name="nav_text_primary">#FFFFFF</color>
+    <color name="nav_text_secondary">#8892B0</color>
+    <color name="nav_surface">#252B42</color>
+    <color name="nav_surface_variant">#1A1F36</color>
+    <color name="nav_outline">#2D3748</color>
+    <color name="nav_gradient_start">#4F8FF7</color>
+    <color name="nav_gradient_end">#E94FFF</color>
+</resources>

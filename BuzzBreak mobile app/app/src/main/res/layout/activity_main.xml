@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical"
+    android:fadeScrollbars="false"
+    android:background="@color/navy_background"
+    tools:context=".MainActivity">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:paddingTop="140dp"
+    android:gravity="center_horizontal">
+
+    <!-- Main Content Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:maxWidth="400dp"
+        android:gravity="center_horizontal">
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="BuzzBreak"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="20dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/dark_card_bg"
+        android:gravity="center"
+        android:textColor="#FFFFFF"
+        android:elevation="3dp"/>
+
+    <!-- Features Grid -->
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="3"
+        android:alignmentMode="alignBounds"
+        android:useDefaultMargins="false"
+        android:layout_marginHorizontal="8dp">
+
+        <!-- App Usage Card -->
+        <LinearLayout
+            android:id="@+id/btn_app_usage"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="📊"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="App Usage"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+        <!-- Pomodoro-Break Card -->
+        <LinearLayout
+            android:id="@+id/btn_break"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="⏱️"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pomodoro-Break"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+        <!-- Buzz Mode Card -->
+        <LinearLayout
+            android:id="@+id/btn_buzz_mode"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="🔒"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buzz Mode"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+        <!-- Tips Card -->
+        <LinearLayout
+            android:id="@+id/btn_tips"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="💡"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Focus Tips"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+        <!-- Daily Report Card -->
+        <LinearLayout
+            android:id="@+id/btn_daily_report"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="📈"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Daily Report"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+        <!-- Settings Card -->
+        <LinearLayout
+            android:id="@+id/btn_settings"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_columnWeight="1"
+            android:layout_margin="6dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:background="@drawable/dark_card_bg"
+            android:clickable="true"
+            android:focusable="true"
+            android:elevation="2dp">
+            
+            <TextView
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="⚙️"
+                android:gravity="center"
+                android:textSize="24sp"
+                android:layout_marginBottom="8dp"/>
+            
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Settings"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:gravity="center"/>
+                
+        </LinearLayout>
+
+    </GridLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+
+</ScrollView>
