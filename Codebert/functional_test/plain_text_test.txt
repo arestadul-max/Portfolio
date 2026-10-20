@@ -1,0 +1,5 @@
+﻿Dostabase Plain Text Functional Test
+
+This document is used only to verify direct plain-text ingestion.
+It is not part of the 15-document experimental corpus.
+The document should be read directly without OCR.
